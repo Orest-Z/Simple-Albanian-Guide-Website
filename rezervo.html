@@ -58,6 +58,36 @@
         <a href="index.html"><img src="icons/back-button.png" style="width: 50px; height: 50px;"></a>
     </div>
 
+
+     <script>
+        // Set minimum date to today (prevent selecting past dates)
+        const dateInput = document.getElementById('dataInput');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Handle form submission
+        const form = document.getElementById('rezervoForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+            
+            // Hide the form
+            form.style.display = 'none';
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            
+            // Optional: Reset form after showing success message
+            setTimeout(function() {
+                form.reset();
+            }, 500);
+            
+            // Optional: Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+
     <!-- FOOTER -->
     <footer>
         <section class="footer" id="kontakt">
