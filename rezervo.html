@@ -47,13 +47,13 @@
             </select>
 
             <label>Data:</label>
-            <input type="date" id="dataInput" name="data" required required>
+            <input type="date" id="dataInput" name="data"  required>
 
             <button type="submit"><img src="icons/upload.png" style="width: 22px;height: 22px;"></button>
         </form>
         <br>
         <div id="successMessage" style="display: none;">
-        <h2>Faleminderit që zgjodhët guidën tonë!</h2>
+        <h2 style="color: var(--mati-primary); font-size: 24px;">Faleminderit që zgjodhët guidën tonë!</h2>
         <p style="text-align: center;">Ne do t'ju kontaktojmë së shpejti me detajet e rezervimit tuaj.</p>
         </div>
         <br>
@@ -66,13 +66,14 @@
      <script>
         // Set minimum date to today (prevent selecting past dates)
         const dateInput = document.getElementById('dataInput');
+        if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
-
+        }
         // Handle form submission
         const form = document.getElementById('rezervoForm');
         const successMessage = document.getElementById('successMessage');
-
+        if (form){
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent page reload
             
@@ -89,7 +90,9 @@
             
             // Optional: Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
         });
+        }
     </script>
 
     <!-- FOOTER -->
