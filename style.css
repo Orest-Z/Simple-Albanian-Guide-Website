@@ -127,14 +127,13 @@ h1, h2 {
 }
 
 .videoja {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 40px 0; /* Add space around it */
+    position: relative; /* Change from absolute to relative */
+    z-index: 1; 
 }
 
 /* 2. Rregullimi i përmasave të videos */
